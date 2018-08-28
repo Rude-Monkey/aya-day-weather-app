@@ -1,7 +1,11 @@
 FROM node:9-slim
-ENV PORT 3000
-EXPOSE 3000
+
+ENV HOST=0.0.0.0
+
 WORKDIR /usr/src/app
 COPY . .
+
+RUN npm install
+
 RUN npm run build
 CMD ["npm", "start"]
